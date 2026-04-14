@@ -13,6 +13,10 @@ articles = soup.find_all('article')
 
 data = []
 
+selenium.webdriver.ChromeOptions().add_argument('--headless')
+driver = selenium.webdriver.Chrome(options=selenium.webdriver.ChromeOptions())
+driver.get('https://backrooms-wiki.wikidot.com/normal-levels-i')
+
 for article in articles:
     href = article.h3.a['href']
     url = 'https://backrooms-wiki.wikidot.com/' + href
